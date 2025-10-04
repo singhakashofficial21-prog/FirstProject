@@ -1,0 +1,289 @@
+/* Live animated gradient background */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #34495e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(270deg, #89f7fe, #6bf9bc, #f984e0, #feba62);
+  background-size: 800% 800%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Header with shadow and spacing */
+header {
+  background: #feffaf;
+  color: #000000;
+  padding: 25px 0;
+  text-align: center;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-image {
+  width: 90%;
+  max-width: 650px;
+  height: auto;
+  display: block;
+  margin: 15px auto 25px auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+  object-fit: cover;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  margin-top: 8px;
+  opacity: 0.85;
+  font-style: italic;
+}
+
+#statsPanel {
+  margin: 18px 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Centered task form styling */
+#taskForm {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 25px 15px;
+  flex-wrap: wrap;
+  background: #fefefe;
+  max-width: 820px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 7px 20px rgba(52, 152, 219, 0.3);
+}
+
+#taskForm input[type='text'],
+#taskForm input[type='date'] {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 6px rgba(52, 152, 219, 0.1);
+  width: 230px;
+  transition: box-shadow 0.3s ease;
+}
+
+#taskForm input[type='text']:focus,
+#taskForm input[type='date']:focus {
+  box-shadow: 0 0 10px #2980b9;
+  outline: none;
+}
+
+#taskForm button {
+  background: #3498db;
+  color: white;
+  font-weight: 700;
+  border: none;
+  padding: 14px 18px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+#taskForm button:hover {
+  background-color: #65f96c;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 18px rgba(156, 197, 240, 0.45);
+}
+
+/* Filter buttons container */
+#filterPanel {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 25px auto 30px auto;
+  max-width: 820px;
+}
+
+#filterPanel button {
+  background: #ecf0f1;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #34495e;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#filterPanel button:hover {
+  background: #52fd52;
+  color: white;
+}
+
+#filterPanel button.active {
+  background: #fa23d3;
+  color: white;
+  box-shadow: 0 0 20px #7ffad7;
+}
+
+/* Progress bar container */
+#progressBar {
+  margin: 20px auto 45px auto;
+  width: 85%;
+  height: 22px;
+  border-radius: 15px;
+  background: #ecf0f1;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.12);
+  position: relative;
+  max-width: 820px;
+}
+
+/* Dynamic fill inside progress bar */
+.progress-fill {
+  height: 100%;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #0cf009 65%, #2ecc71 100%);
+  width: 0;
+  transition: width 0.6s ease-in-out;
+}
+
+/* Task list container */
+#taskList {
+  max-width: 820px;
+  margin: 0 auto 60px auto;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* Individual task items */
+#taskList li {
+  background: #fff;
+  margin: 10px 0;
+  padding: 15px 16px;
+  border-left: 5px solid #9151da;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 3px 10px rgba(52, 152, 219, 0.1);
+  border-radius: 10px;
+  font-size: 1.05rem;
+  position: relative;
+  user-select: none;
+  transition: background-color 0.15s ease;
+}
+
+#taskList li:hover {
+  background-color: #f0faff;
+  box-shadow: 0 5px 20px rgba(52, 152, 219, 0.18);
+}
+
+/* Subject labels */
+#taskList span.subject {
+  background: #edf48a;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  color: #0b0b0b;
+  margin-left: 8px;
+  padding: 4px 10px;
+  font-weight: 600;
+  user-select: text;
+}
+
+/* Completed task style */
+#taskList span.completed {
+  text-decoration: line-through;
+  color: #95a5a6;
+}
+
+/* Task buttons (delete) */
+#taskList button {
+  border: none;
+  background: none;
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #fc0202;
+  opacity: 0.85;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#taskList button:hover {
+  opacity: 1;
+  transform: scale(1.22);
+}
+
+/* Footer style */
+footer {
+  margin: 45px 0 30px 0;
+  text-align: center;
+  color: #000000;
+  font-size: 0.95rem;
+}
+
+blockquote {
+  font-style: italic;
+  background: #b6e7f9;
+  border-left: 5px solid #76faa2;
+  padding: 15px 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 3px 15px rgba(52, 152, 219, 0.14);
+}
+
+/* Scrollbar for task list on small height screens */
+#taskList {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+#taskList::-webkit-scrollbar {
+  width: 8px;
+}
+
+#taskList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#taskList::-webkit-scrollbar-thumb {
+  background-color: #e5fe7f;
+  border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  #taskForm {
+    flex-direction: column;
+    align-items: center;
+  }
+  #taskForm input[type='text'],
+  #taskForm input[type='date'],
+  #taskForm button {
+    width: 90%;
+    max-width: 350px;
+    margin-bottom: 10px;
+  }
+  #filterPanel {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Study Planner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>Smart Study Planner</h1>
+        <p class="subtitle">"Plan smart, succeed smarter!"</p>
+        <div id="statsPanel">
+            <span id="totalTasks"></span>
+            <span id="completedTasks"></span>
+            <span id="upcomingTask"></span>
+        </div>
+    </header>
+
+    <form id="taskForm">
+        <input type="text" id="taskName" placeholder="Enter study task" required />
+        <input type="text" id="subjectName" placeholder="Subject (optional)" />
+        <input type="date" id="taskDate" required />
+        <button type="submit">
+            <i class="fa-solid fa-plus"></i> Add Task
+        </button>
+    </form>
+
+    <nav id="filterPanel">
+        <button type="button" onclick="filterTasks('all')">All</button>
+        <button type="button" onclick="filterTasks('completed')">Completed</button>
+        <button type="button" onclick="filterTasks('pending')">Pending</button>
+    </nav>
+
+    <section id="progressSection">
+        <h2>Progress Timeline</h2>
+        <div id="progressBar"></div>
+    </section>
+
+    <h2>Tasks:</h2>
+    <ul id="taskList"></ul>
+
+    <footer>
+        <blockquote id="quote">"Success is the sum of small efforts, repeated day in and day out."</blockquote>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
